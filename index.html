@@ -304,81 +304,8 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-
         .copied-badge.show {
             opacity: 1;
-        }
-
-        /* Settings Modal */
-        .settings-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            z-index: 100;
-            color: var(--primary);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .settings-btn:hover {
-            transform: rotate(45deg);
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .settings-modal {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes modalPop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .settings-modal h3 {
-            margin-bottom: 12px;
-            font-size: 1.25rem;
-        }
-
-        .settings-modal p {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.5;
         }
 
         /* Responsive Tweak */
@@ -390,25 +317,10 @@
                 padding: 14px;
             }
         }
+    </style>
 </head>
 <body>
 
-<div class="settings-btn" onclick="toggleSettings()" title="API Settings">⚙️</div>
-
-<div class="modal-overlay" id="settings-modal-overlay">
-    <div class="settings-modal">
-        <h3>⚙️ API Settings</h3>
-        <p>Enter your <strong>Groq API Key</strong> to enable AI generation. Your key is saved locally in your browser and is never shared.</p>
-        <div style="margin-bottom: 24px;">
-            <input type="password" id="api-key-input" placeholder="gsk_..." style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); font-family: inherit; outline: none; background: #f8fafc;">
-        </div>
-        <div style="display: flex; gap: 12px;">
-            <button class="btn btn-primary" onclick="saveApiKey()">Save Key</button>
-            <button class="btn btn-secondary" onclick="toggleSettings()">Cancel</button>
-        </div>
-        <p style="margin-top: 16px; font-size: 0.8rem;">Don't have a key? Get one at <a href="https://console.groq.com/keys" target="_blank" style="color: var(--accent);">console.groq.com</a></p>
-    </div>
-</div>
 
 <div class="app-container">
     <div class="glass-card">
@@ -523,6 +435,8 @@
         details: ''
     };
 
+    const GROQ_API_KEY = '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';
+
     const templates = [
         "Absolutely thrilled with the {task} on our {service} by B. Collins Plumbing. Their professionalism and timeliness really stood out here in Galway. The standard of work was exceptional, and I wouldn't hesitate to recommend them to anyone needing a reliable plumber. {details}",
         "B. Collins Plumbing just completed a {service} {task} and I couldn't be happier. From start to finish, their professionalism was evident. They arrived on time (great timeliness!) and sorted everything perfectly. Definitely the best in Galway. {details}",
@@ -590,30 +504,7 @@
         if (currentStep > 1) showStep(currentStep - 1);
     }
 
-    function toggleSettings() {
-        const modal = document.getElementById('settings-modal-overlay');
-        const input = document.getElementById('api-key-input');
-        input.value = localStorage.getItem('groq_api_key') || '';
-        modal.classList.toggle('active');
-    }
-
-    function saveApiKey() {
-        const key = document.getElementById('api-key-input').value.trim();
-        localStorage.setItem('groq_api_key', key);
-        toggleSettings();
-        if (key) {
-            alert("Settings saved successfully!");
-        }
-    }
-
     async function generateReview() {
-        const GROQ_API_KEY = localStorage.getItem('groq_api_key');
-        
-        if (!GROQ_API_KEY) {
-            toggleSettings();
-            alert("Please enter your Groq API Key in Settings first!");
-            return;
-        }
         const customExp = document.getElementById('custom-experience-input').value.trim();
         
         if (!selections.experience && !customExp) {
@@ -713,12 +604,8 @@
         showStep(1);
     }
 
-    // Auto-open settings if key is missing
-    window.onload = () => {
-        if (!localStorage.getItem('groq_api_key')) {
-            setTimeout(toggleSettings, 1000);
-        }
-    };
+        showStep(1);
+    }
 </script>
 
 </body>
