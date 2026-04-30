@@ -66,14 +66,16 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);
 
 /* ===== MOBILE LAYOUT ===== */
 @media(max-width:767px){
-  .mobile-layout{display:flex;min-height:100vh;background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('bg.png');background-size:cover;background-attachment:fixed;justify-content:center;align-items:center;padding:16px;}
-  .mobile-card{width:100%;max-width:440px;background:rgba(20, 30, 25, 0.7);backdrop-filter:blur(25px);border:1px solid rgba(46, 204, 113, 0.2);border-radius:32px;padding:32px 24px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);animation:slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);}
-  .mobile-header{text-align:center;margin-bottom:28px;}
-  .logo-container{display:inline-block;background:rgba(255,255,255,0.03);padding:12px;border-radius:20px;border:1px solid rgba(255,255,255,0.05);margin-bottom:12px;box-shadow:inset 0 0 20px rgba(46, 204, 113, 0.05);}
-  .mobile-header img{width:150px;height:auto;display:block;}
-  .mobile-header p{font-size:0.8rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-weight:600;opacity:0.9;}
-  .progress-bar{margin-bottom:32px;gap:12px;}
-  .step-dot{height:4px;border-radius:2px;}
+  .mobile-layout{display:flex;min-height:100vh;background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('bg.png');background-size:cover;background-attachment:fixed;justify-content:center;align-items:center;padding:12px;}
+  .mobile-card{width:100%;max-width:440px;background:rgba(20, 30, 25, 0.7);backdrop-filter:blur(25px);border:1px solid rgba(46, 204, 113, 0.2);border-radius:32px;padding:24px 20px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);animation:slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);max-height: 95vh; overflow-y: auto;}
+  .mobile-header{text-align:center;margin-bottom:20px;}
+  .logo-container{display:inline-block;background:rgba(255,255,255,0.03);padding:8px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);margin-bottom:8px;box-shadow:inset 0 0 20px rgba(46, 204, 113, 0.05);}
+  .mobile-header img{width:120px;height:auto;display:block;}
+  .mobile-header p{font-size:0.75rem;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;opacity:0.9;}
+  .progress-bar{margin-bottom:24px;gap:8px;}
+  .step-dot{height:3px;border-radius:2px;}
+  .option-btn{padding:10px 8px; font-size: 0.8rem;}
+  .grid-options{gap: 8px;}
 }
 
 @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -88,7 +90,7 @@ h2{font-size:1.2rem;font-weight:700;margin-bottom:18px;text-align:center;letter-
 .step-content.active{display:block;animation:fadeIn 0.35s ease-in-out;}
 
 .grid-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:400px){.grid-options{grid-template-columns:1fr;}}
+@media(max-width:320px){.grid-options{grid-template-columns:1fr;}}
 
 .option-btn{background:rgba(255,255,255,0.05);border:2px solid transparent;border-radius:14px;padding:14px 12px;font-size:0.9rem;font-weight:500;color:var(--text);cursor:pointer;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);text-align:center;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;}
 .option-btn:hover{transform:translateY(-2px);border-color:var(--accent);background:rgba(46,204,113,0.08);}
@@ -110,7 +112,9 @@ textarea{width:100%;resize:none;line-height:1.5;}
 .btn-success{background:var(--success);color:white;box-shadow:0 4px 14px rgba(37,211,102,0.35);}
 
 .result-area{background:rgba(0,0,0,0.35);border-radius:16px;padding:20px;margin-top:14px;border:1px solid rgba(255,255,255,0.1);min-height:120px;font-size:0.92rem;line-height:1.7;color:#e2e8f0;position:relative;}
-.copied-badge{position:absolute;top:-10px;right:10px;background:var(--success);color:white;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+.result-text{outline:none; min-height: 80px;}
+.result-text:focus{background: rgba(255,255,255,0.03); border-radius: 8px;}
+.copied-badge{position:absolute;top:-10px;right:10px;background:var(--success);color:white;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index: 10;}
 .copied-badge.show{opacity:1;}
 
 .result-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
@@ -143,15 +147,15 @@ textarea{width:100%;resize:none;line-height:1.5;}
       </div>
       <div class="sidebar-step" id="dstep-2">
         <div class="step-num">2</div>
-        <div class="step-info"><div class="step-label">Step 2</div><div class="step-name">What Was Done?</div></div>
+        <div class="step-info"><div class="step-label">Step 2</div><div class="step-name">Work Details</div></div>
       </div>
       <div class="sidebar-step" id="dstep-3">
         <div class="step-num">3</div>
-        <div class="step-info"><div class="step-label">Step 3</div><div class="step-name">Your Experience</div></div>
+        <div class="step-info"><div class="step-label">Step 3</div><div class="step-name">Your Feedback</div></div>
       </div>
       <div class="sidebar-step" id="dstep-4">
         <div class="step-num">4</div>
-        <div class="step-info"><div class="step-label">Done!</div><div class="step-name">Your Review</div></div>
+        <div class="step-info"><div class="step-label">Final Step</div><div class="step-name">Review Polish</div></div>
       </div>
     </div>
     <div class="sidebar-contact">
@@ -225,47 +229,48 @@ function getFormHTML(step) {
     <button class="btn btn-primary" style="flex:0;padding:0 18px;white-space:nowrap;" onclick="selectCustomService()">Next</button></div></div>`;
 
   if (step === 2) return `
-    <h2>What Was Done?</h2>
-    <div class="grid-options">
-      <button class="option-btn" onclick="selectTask('Routine Maintenance')">Routine Maintenance</button>
-      <button class="option-btn" onclick="selectTask('New Project')">New Project</button>
-      <button class="option-btn" onclick="selectTask('Seasonal Cleanup')">Seasonal Cleanup</button>
+    <h2 style="text-align:left; font-size: 1.1rem; margin-bottom: 8px;">Question 1 of 2</h2>
+    <p style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">What specific work did our team do for you today?</p>
+    
+    <div class="grid-options" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+      <textarea id="work-done-input" rows="5" placeholder="e.g. Mowed the lawn and trimmed the hedges in my front garden..." style="width: 100%;"></textarea>
     </div>
-    <div class="divider"><p>Or describe what was done:</p>
-    <div class="input-row"><input type="text" id="custom-task-input" placeholder="e.g. Planted new hedges">
-    <button class="btn btn-primary" style="flex:0;padding:0 18px;white-space:nowrap;" onclick="selectCustomTask()">Next</button></div></div>
-    <div class="actions"><button class="btn btn-secondary" onclick="prevStep()">Back</button></div>`;
 
-  if (step === 3) return `
-    <h2>Your Experience</h2>
-    <div class="grid-options">
-      <button class="option-btn" id="exp-exceptional" onclick="selectExperience('Exceptional')">Exceptional</button>
-      <button class="option-btn" id="exp-good" onclick="selectExperience('Good')">Good</button>
-      <button class="option-btn" id="exp-average" onclick="selectExperience('Average')">Average</button>
-    </div>
-    <div class="divider"><p>Describe in your own words (optional):</p>
-    <textarea id="custom-experience-input" rows="2" placeholder="e.g. The garden looks stunning, team was very professional..."></textarea></div>
-    <div class="divider" style="border-top:none;padding-top:0;margin-top:0;"><p>Add specific details (optional):</p>
-    <textarea id="additional-details" rows="2" placeholder="e.g. Highly recommend for any garden transformation."></textarea></div>
     <div class="actions">
       <button class="btn btn-secondary" onclick="prevStep()">Back</button>
-      <button class="btn btn-primary" id="gen-btn" onclick="generateReview()">Generate Review</button>
+      <button class="btn btn-primary" onclick="saveStep2()">Next Question</button>
+    </div>`;
+
+  if (step === 3) return `
+    <h2 style="text-align:left; font-size: 1.1rem; margin-bottom: 8px;">Question 2 of 2</h2>
+    <p style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">What did you appreciate most about our service? (e.g. quality, punctuality, cleanup)</p>
+    
+    <div class="grid-options" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+      <textarea id="appreciation-input" rows="5" placeholder="e.g. The team was very professional, arrived on time, and left everything spotless..." style="width: 100%;"></textarea>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-secondary" onclick="prevStep()">Back</button>
+      <button class="btn btn-primary" id="gen-btn" onclick="saveStep3AndGenerate()">Polish & Finish</button>
     </div>`;
 
   if (step === 4) return `
-    <h2>✅ Your Review Is Ready!</h2>
-    <div style="text-align: center; margin-bottom: 15px; font-size: 0.85rem; color: var(--accent); font-weight: 500;">
-      Follow 2 simple steps to post:
-    </div>
+    <h2>✨ Your Polished Review</h2>
+    <p style="text-align: center; margin-bottom: 15px; font-size: 0.85rem; color: var(--text-muted);">
+      We've merged and polished your answers into a professional review.
+    </p>
     
     <div style="background: rgba(46, 204, 113, 0.1); border: 1px dashed var(--accent); border-radius: 12px; padding: 12px; margin-bottom: 15px; font-size: 0.8rem; line-height: 1.4;">
-      <strong>Step 1:</strong> Click "Copy Review" below.<br>
-      <strong>Step 2:</strong> Click "Post on Google" and <strong>Paste</strong> your review there.
+      <strong>Final Step:</strong> Copy the text and paste it on Google to share your experience with others!
     </div>
 
-    <div class="result-area result-text">
+    <div class="result-area">
       <div class="copied-badge">Copied!</div>
+      <div class="result-text" contenteditable="true" title="Click to edit review"></div>
     </div>
+    <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">
+      💡 Tip: Click the text above to edit it manually!
+    </p>
     
     <div class="result-actions">
       <button class="btn btn-primary" onclick="copyToClipboard()">1. Copy Review</button>
@@ -306,39 +311,31 @@ function selectCustomService() {
   if (!v) return alert('Please type a service name');
   selections.service = v; currentStep = 2; renderStep(2);
 }
-function selectTask(t) { selections.task = t; currentStep = 3; renderStep(3); }
-function selectCustomTask() {
-  const inputs = document.querySelectorAll('#custom-task-input');
+
+function saveStep2() {
+  const inputs = document.querySelectorAll('#work-done-input');
   let v = '';
   inputs.forEach(input => { if (input.value) v = input.value; });
-  if (!v) return alert('Please type what was done');
-  selections.task = v; currentStep = 3; renderStep(3);
+  if (!v) return alert('Please tell us a bit about what was done!');
+  selections.task = v;
+  currentStep = 3;
+  renderStep(3);
 }
-function selectExperience(e) {
-  selections.experience = e;
-  ['exceptional','good','average'].forEach(x => {
-    const els = document.querySelectorAll(`#exp-${x}`);
-    els.forEach(el => el.classList.toggle('selected', x === e.toLowerCase()));
-  });
-  const cis = document.querySelectorAll('#custom-experience-input');
-  cis.forEach(ci => ci.value = '');
+
+function saveStep3AndGenerate() {
+  const inputs = document.querySelectorAll('#appreciation-input');
+  let v = '';
+  inputs.forEach(input => { if (input.value) v = input.value; });
+  if (!v) return alert('Please share what you liked about the service!');
+  selections.details = v;
+  generateReview();
 }
+
 function prevStep() { if (currentStep > 1) { currentStep--; renderStep(currentStep); } }
 
 async function generateReview() {
-  const customExps = document.querySelectorAll('#custom-experience-input');
-  let customExp = '';
-  customExps.forEach(input => { if (input.value) customExp = input.value; });
-
-  if (!selections.experience && !customExp) return alert('Please select or describe your experience!');
-  
-  const detailInputs = document.querySelectorAll('#additional-details');
-  detailInputs.forEach(input => { if (input.value) selections.details = input.value; });
-  
-  const expVal = customExp || selections.experience;
-
   const btns = document.querySelectorAll('#gen-btn, .btn-regen-step');
-  btns.forEach(btn => { btn.innerHTML = 'Generating...'; btn.disabled = true; });
+  btns.forEach(btn => { btn.innerHTML = 'Polishing...'; btn.disabled = true; });
 
   try {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -347,10 +344,10 @@ async function generateReview() {
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
         messages: [
-          { role: 'system', content: "You are a customer writing a Google review for Green Nature Garden and Landscaping in Cork, Ireland (Frankfield, Douglas, Kinsale). Use a professional, warm, impressed tone. 50-100 words. Mention 'attention to detail', 'professionalism', and 'Cork'. No emojis." },
-          { role: 'user', content: `Service: ${selections.service}, Task: ${selections.task}, Experience: ${expVal}. Details: ${selections.details || 'None'}.` }
+          { role: 'system', content: "You are a professional editor. Your task is to merge the user's answers into a coherent, 5-star Google review for 'Green Nature Garden and Landscaping' in Cork. IMPORTANT: Use ONLY the information provided by the user. Do NOT add new facts, services, or locations not mentioned. Fix grammar, improve flow, and maintain a warm, authentic tone. No emojis. Keep it under 80 words." },
+          { role: 'user', content: `Service Category: ${selections.service}. Work Done: ${selections.task}. Highlights: ${selections.details}.` }
         ],
-        temperature: 0.75, max_tokens: 200
+        temperature: 0.5, max_tokens: 200
       })
     });
     if (!res.ok) throw new Error('API failed');
@@ -359,20 +356,20 @@ async function generateReview() {
     currentStep = 4; renderStep(4);
     
     document.querySelectorAll('.result-text').forEach(el => {
-      el.innerHTML = `<div class="copied-badge">Copied!</div>${review}`;
+      el.innerText = review;
     });
   } catch(err) {
-    let t = templates[Math.floor(Math.random()*templates.length)];
-    let review = t.replace('{service}',selections.service.toLowerCase()).replace('{task}',selections.task.toLowerCase()).replace('{details}',selections.details?` ${selections.details}.`:'');
+    // Fallback merge
+    let review = `We recently used Green Nature for ${selections.service.toLowerCase()}. ${selections.task}. ${selections.details}. Highly recommended for anyone in Cork!`;
     currentStep = 4; renderStep(4);
     
     document.querySelectorAll('.result-text').forEach(el => {
-      el.innerHTML = `<div class="copied-badge">Copied!</div>${review}`;
+      el.innerText = review;
     });
   }
   btns.forEach(btn => { 
     if (btn.classList.contains('btn-regen-step')) btn.innerHTML = 'Try Different Phrasing';
-    else btn.innerHTML = 'Generate Review'; 
+    else btn.innerHTML = 'Polish & Finish'; 
     btn.disabled = false; 
   });
 }
@@ -380,7 +377,7 @@ async function generateReview() {
 function copyToClipboard() {
   const el = document.querySelector('.result-text');
   if (!el) return;
-  const text = el.innerText.replace('Copied!','').trim();
+  const text = el.innerText.trim();
   navigator.clipboard.writeText(text).then(() => {
     document.querySelectorAll('.copied-badge').forEach(badge => {
       badge.classList.add('show');
